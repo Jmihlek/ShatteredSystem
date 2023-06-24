@@ -40,7 +40,7 @@ public class Dialogs : MonoBehaviour
         }
         else
             StopAllCoroutines();
-            dialogeText.text = lines[index];
+        dialogeText.text = lines[index];
     }
 
     private void NextLines()
