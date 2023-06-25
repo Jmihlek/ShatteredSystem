@@ -33,9 +33,9 @@ EditorBuildSettings:
     path: Assets/Scenes/WindowsKwez/Kwez1.unity
     guid: d16c542e66d4b0549a1543b33cd40579
   - enabled: 1
-    path: Assets/Scenes/WindowsKwez/Kwez2 1.unity
-    guid: 9c13e1060d3067644be17af3fd9aa06a
+    path: Assets/Scenes/WindowsKwez/Kwez2.unity
+    guid: 15d94cc0cb9cda9489f53011a3e8d8d5
   - enabled: 1
     path: Assets/Scenes/WindowsKwez/Kwez3.unity
-    guid: 724ae05c0f6827a49aac3f1813305ac0
+    guid: 188cb5ec0d63288479c2e38c591f1d99
   m_configObjects: {}
