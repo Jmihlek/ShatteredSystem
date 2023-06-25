@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PositionSaver : MonoBehaviour
 {
     private Move playerMove;
     private Vector3 playerPosition;
     private Quaternion playerRotation;
+    private const string EvilKey = "IsEvil";
+    public float NormalRadius;
+    public float NormalSpeed;
+    public float AngerRadius;
+    public float AngerSpeed;
+
 
     private void Start()
     {
@@ -52,7 +59,20 @@ public class PositionSaver : MonoBehaviour
                 if (needHideObjs.Contains(obj.ID))
                     obj.gameObject.SetActive(false);
 
-            FindObjectOfType<AI_Ray>(true).gameObject.SetActive(true);
+            var monster = FindObjectOfType<AI_Ray>(true);
+            monster.gameObject.SetActive(true);
+            var navAgent = monster.GetComponent<NavMeshAgent>();
+
+            if (PlayerPrefs.HasKey(EvilKey))
+            {
+                navAgent.speed = AngerSpeed;
+                navAgent.radius = AngerRadius;
+            }
+            else
+            {
+                navAgent.speed = NormalSpeed;
+                navAgent.radius = NormalRadius;
+            }
         }
         else
         {
@@ -92,6 +112,9 @@ public class PositionSaver : MonoBehaviour
         PlayerPrefs.DeleteKey("PlayerRotationY");
         PlayerPrefs.DeleteKey("PlayerRotationZ");
         PlayerPrefs.DeleteKey("PlayerRotationW");
+        
+        PlayerPrefs.DeleteKey("NumberArray");
+        PlayerPrefs.DeleteKey("IsEvil");
 
         Debug.Log("Saved variables reset.");
     }

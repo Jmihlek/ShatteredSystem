@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/LVL1 \u0421ut1.unity"
     guid: fa010f32ee40b6d4684d0390c6b2c54f
+  - enabled: 1
+    path: Assets/Scenes/WindowsKwez/Kwez1.unity
+    guid: d16c542e66d4b0549a1543b33cd40579
+  - enabled: 1
+    path: Assets/Scenes/WindowsKwez/Kwez2 1.unity
+    guid: 9c13e1060d3067644be17af3fd9aa06a
+  - enabled: 1
+    path: Assets/Scenes/WindowsKwez/Kwez3.unity
+    guid: 724ae05c0f6827a49aac3f1813305ac0
   m_configObjects: {}

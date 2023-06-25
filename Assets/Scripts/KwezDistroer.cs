@@ -54,4 +54,8 @@ public class KwezDistroer : MonoBehaviour
     {
         SaveArray(new int[] { ID });
     }
+    public void AddToDelete(int id)
+    {
+        SaveArray(new int[] { id });
+    }
 }
