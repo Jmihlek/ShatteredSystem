@@ -59,6 +59,11 @@ public class PositionSaver : MonoBehaviour
                 if (needHideObjs.Contains(obj.ID))
                     obj.gameObject.SetActive(false);
 
+            var needShowObjs = KwezCreator.LoadArray();
+            foreach (var obj in FindObjectsOfType<KwezCreator>(true).Where(t => t.ID != 0))
+                if (needShowObjs.Contains(obj.ID))
+                    obj.gameObject.SetActive(true);
+
             var monster = FindObjectOfType<AI_Ray>(true);
             monster.gameObject.SetActive(true);
             var navAgent = monster.GetComponent<NavMeshAgent>();
@@ -101,7 +106,7 @@ public class PositionSaver : MonoBehaviour
     }
 
     [ContextMenu("Reset Saved Variables")]
-    private void ResetSavedVariables()
+    public void ResetSavedVariables()
     {
         // Удаление всех сохраненных переменных
         PlayerPrefs.DeleteKey("PlayerPositionX");

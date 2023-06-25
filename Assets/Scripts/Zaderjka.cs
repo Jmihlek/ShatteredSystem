@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Zaderjka : MonoBehaviour
@@ -13,7 +12,7 @@ public class Zaderjka : MonoBehaviour
         StartCoroutine(ActivateObjectsDelayedCoroutine());
     }
 
-    private System.Collections.IEnumerator ActivateObjectsDelayedCoroutine()
+    private IEnumerator ActivateObjectsDelayedCoroutine()
     {
         // ∆дем заданное врем€
         yield return new WaitForSeconds(delayTime);
