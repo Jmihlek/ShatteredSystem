@@ -9,6 +9,7 @@ public class SceneChaneger : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
     public void ChangeSceneByIndexPosition(int sceneIndex)
     {
         var playerTransform = FindObjectOfType<Move>().transform;

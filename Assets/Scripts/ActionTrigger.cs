@@ -6,6 +6,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class ActionTrigger : MonoBehaviour
 {
+    public int ID;
     public GameObject messageText;
     private bool isInTrigger = false;
     public UnityEvent Action;
@@ -13,6 +14,12 @@ public class ActionTrigger : MonoBehaviour
     {
         GetComponent<Collider>().isTrigger = true;
     }
+
+    public void DisableOnLoad()
+    {
+        PlayerPrefs.SetInt("TriggerID", ID);
+    }
+
     private void Update()
     {
         if (isInTrigger && Input.GetKeyDown(KeyCode.E))

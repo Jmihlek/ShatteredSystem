@@ -46,6 +46,17 @@ public class PositionSaver : MonoBehaviour
                 // Ќапример, установка ее в качестве активной камеры
                 closestCamera.gameObject.SetActive(true);
             }
+
+            var needHideObjs = KwezDistroer.LoadArray();
+            foreach (var obj in FindObjectsOfType<KwezDistroer>().Where(t => t.ID != 0))
+                if (needHideObjs.Contains(obj.ID))
+                    obj.gameObject.SetActive(false);
+
+            FindObjectOfType<AI_Ray>(true).gameObject.SetActive(true);
+        }
+        else
+        {
+            FindObjectOfType<AI_Ray>(true).gameObject.SetActive(false);
         }
 
     }
