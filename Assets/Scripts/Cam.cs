@@ -20,8 +20,13 @@ public class Cam : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            CameraTwo.SetActive(true);
-            CameraOne.SetActive(false);
+            var player = FindObjectOfType<Move>();
+            Debug.Log($"{player.CanSwitchCamera()}");
+            if (player.CanSwitchCamera())
+            {
+                CameraTwo.SetActive(true);
+                CameraOne.SetActive(false);
+            }
         }
     }
 }

@@ -275,6 +275,8 @@ MonoBehaviour:
   CharacterController: {fileID: 21686933}
   gravityValue: -70
   boostSpeed: 3
+  cameraSwitchDelay: 1
+  canSwitchCamera: 1
 --- !u!114 &21686932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,6 +1110,8 @@ MonoBehaviour:
   CharacterController: {fileID: 76157315}
   gravityValue: -70
   boostSpeed: 3
+  cameraSwitchDelay: 1
+  canSwitchCamera: 1
 --- !u!95 &76157314
 Animator:
   serializedVersion: 4
@@ -2785,7 +2789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226271519}
   m_LocalRotation: {x: -0, y: 0.72179216, z: -0, w: 0.69210994}
-  m_LocalPosition: {x: -8.480412, y: 0.6408005, z: -29.319}
+  m_LocalPosition: {x: -10.7, y: 0.6408005, z: -27.03}
   m_LocalScale: {x: 0.3713599, y: 0.33622, z: 1.4822882}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2819,8 +2823,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 20.911373, y: 1, z: 3.1077552}
+  m_Center: {x: -4.8428164, y: 0, z: 1.0538825}
 --- !u!23 &226271523
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3159,7 +3163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261044439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.479, y: 40.417, z: 3.4}
+  m_LocalPosition: {x: -42.67, y: 40.417, z: 3.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5531,7 +5535,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484872766}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fd6f4ce6ddf7cb40ab51eb03dd7886b, type: 3}
   m_Name: 
@@ -6855,14 +6859,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602714439}
-  m_LocalRotation: {x: -0.15446489, y: -0.40635255, z: 0.011398388, w: -0.9004934}
-  m_LocalPosition: {x: -19.22, y: 2.594, z: -34.01}
+  m_LocalRotation: {x: -0.15189499, y: -0.5139018, z: 0.030288376, w: -0.84375083}
+  m_LocalPosition: {x: -20.384, y: 2.5940018, z: -34.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1950373625}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 16.706, y: 409.5, z: 6.294}
+  m_LocalEulerAnglesHint: {x: 16.706, y: 423.614, z: 6.294}
 --- !u!20 &602714442
 Camera:
   m_ObjectHideFlags: 0
@@ -9174,6 +9178,8 @@ MonoBehaviour:
   CharacterController: {fileID: 894988087}
   gravityValue: -70
   boostSpeed: 3
+  cameraSwitchDelay: 1
+  canSwitchCamera: 1
 --- !u!114 &894988086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9759,8 +9765,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 15.772605, y: 1, z: 1.7337228}
+  m_Center: {x: 7.386221, y: 0, z: 0.057742372}
 --- !u!23 &982870996
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15944,6 +15950,8 @@ MonoBehaviour:
   CharacterController: {fileID: 1632120101}
   gravityValue: -50
   boostSpeed: 3
+  cameraSwitchDelay: 1
+  canSwitchCamera: 1
 --- !u!114 &1632120099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16056,8 +16064,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647656859}
   m_LocalRotation: {x: -0.71023, y: 0.0016529458, z: 0.70390844, w: 0.009139685}
-  m_LocalPosition: {x: 3.57, y: -1.4, z: -15.03}
-  m_LocalScale: {x: 1.2541, y: 2.3083286, z: 0.056803}
+  m_LocalPosition: {x: 3.546, y: -1.4, z: -15.083}
+  m_LocalScale: {x: 1.443469, y: 2.3083286, z: 0.056803}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1187849022}
@@ -20055,7 +20063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011186570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.479, y: 40.417, z: 45.772}
+  m_LocalPosition: {x: -45.479, y: 40.3, z: 45.772}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20482,7 +20490,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046480433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fd6f4ce6ddf7cb40ab51eb03dd7886b, type: 3}
   m_Name: 

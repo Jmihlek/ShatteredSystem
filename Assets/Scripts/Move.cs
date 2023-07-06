@@ -17,6 +17,10 @@ public class Move : MonoBehaviour
     public float gravityValue = -9.81f;
     public float boostSpeed = 10;
     // Start is called before the first frame update
+    public float cameraSwitchDelay = 1.0f; // Задержка перед сменой камеры
+    private float cameraSwitchTimer = 0.0f; // Таймер для отслеживания задержки смены камеры
+
+    public bool canSwitchCamera = true; // Флаг, указывающий, можно ли менять камеры
     void Start()
     {
 
@@ -26,8 +30,33 @@ public class Move : MonoBehaviour
     }
 
     // Update is called once per frame
+    public bool CanSwitchCamera()
+    {
+        if (canSwitchCamera)
+        {
+            canSwitchCamera = false;
+            cameraSwitchTimer = 0.0f;
+            return true;
+        }
+        else
+            return false;
+        // Устанавливаем флаг и сбрасываем таймер
+    }
     void Update()
     {
+        // Проверяем, можно ли менять камеры
+        if (!canSwitchCamera)
+        {
+            cameraSwitchTimer += Time.deltaTime;
+
+            // Если прошло достаточно времени, сбрасываем флаг и таймер
+            if (cameraSwitchTimer >= cameraSwitchDelay)
+            {
+                canSwitchCamera = true;
+                cameraSwitchTimer = 0.0f;
+            }
+        }
+
         var isRun = Input.GetKey(KeyCode.LeftShift);
         // Получаем активную камеру
         Camera activeCamera = FindObjectOfType<Camera>();
