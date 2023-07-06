@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CamControl : MonoBehaviour
 {
-    public Transform playerTransform;
+    private Transform playerTransform => FindObjectOfType<Move>().transform;
     public Vector3 offset; // Смещение камеры относительно цели
     public float sensitivity = 2f; // Чувствительность мыши
     public float smoothing = 1f; // Сглаживание движения камеры

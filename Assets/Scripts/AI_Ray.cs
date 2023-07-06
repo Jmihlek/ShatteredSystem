@@ -15,7 +15,8 @@ public class AI_Ray : MonoBehaviour {
 	
 	
 	void Update () {
-        NMA.SetDestination(Player.position);
+        if (Player != null)
+            NMA.SetDestination(Player.position);
 
     
 

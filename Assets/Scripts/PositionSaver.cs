@@ -56,9 +56,14 @@ public class PositionSaver : MonoBehaviour
 
             var needHideObjs = KwezDistroer.LoadArray();
             foreach (var obj in FindObjectsOfType<KwezDistroer>().Where(t => t.ID != 0))
+            {
                 if (needHideObjs.Contains(obj.ID))
+                {
+                    Debug.Log($"Destroy ID: {obj.ID}");
                     obj.gameObject.SetActive(false);
+                }
 
+            }
             var needShowObjs = KwezCreator.LoadArray();
             foreach (var obj in FindObjectsOfType<KwezCreator>(true).Where(t => t.ID != 0))
                 if (needShowObjs.Contains(obj.ID))

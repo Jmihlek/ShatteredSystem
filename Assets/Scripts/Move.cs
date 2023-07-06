@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -28,29 +29,65 @@ public class Move : MonoBehaviour
     void Update()
     {
         var isRun = Input.GetKey(KeyCode.LeftShift);
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        Vector3 directionVector = new Vector3(-v, 0, h);
-        if (directionVector.magnitude > Mathf.Abs(0.05f))
-        transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(directionVector),Time.deltaTime * 10);
-        animator.SetFloat("MovmentSpeed", Vector3.ClampMagnitude(directionVector, 1).magnitude);
-        //transform.position = Vector3.ClampMagnitude(directionVector,1) * speed;
-        groundedPlayer = CharacterController.isGrounded;
-        if (groundedPlayer && directionVector.y < 0)
+        // Получаем активную камеру
+        Camera activeCamera = FindObjectOfType<Camera>();
+        if (activeCamera == null)
         {
-            directionVector.y = 0f;
-        }
-        if (directionVector != Vector3.zero)
-        {
-            gameObject.transform.forward = directionVector;
+            Debug.LogError("Нет активной камеры!");
+            return;
         }
 
-        // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        // Получаем ввод от игрока
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        // Преобразуем ввод относительно направления камеры
+        Vector3 cameraForward = activeCamera.transform.forward;
+        Vector3 cameraRight = activeCamera.transform.right;
+        cameraForward.y = 0f;
+        cameraRight.y = 0f;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+        // Вычисляем направление движения персонажа относительно камеры
+        Vector3 movementDirection = (cameraForward * verticalInput) + (cameraRight * horizontalInput);
+        movementDirection.Normalize();
+
+        // Применяем движение персонажа
+        Vector3 movement = movementDirection * (isRun ? boostSpeed : speed) * Time.deltaTime;
+        animator.SetFloat("MovmentSpeed", Vector3.ClampMagnitude(movementDirection, 1).magnitude);
+        //transform.position = Vector3.ClampMagnitude(directionVector,1) * speed;
+        groundedPlayer = CharacterController.isGrounded;
+        if (groundedPlayer && movement.y < 0)
         {
-            directionVector.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            movement.y = 0f;
         }
-        directionVector.y += gravityValue * Time.deltaTime;
-        CharacterController.Move(directionVector * (isRun ? boostSpeed : speed) * Time.deltaTime);
-    }
+        if (movement != Vector3.zero)
+        {
+            gameObject.transform.forward = movement;
+        }
+        CharacterController.Move(movement);
+
+        // Поворачиваем персонажа в сторону ходьбы
+        if (movementDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection);
+            transform.rotation = toRotation;
+        }
+
+
+    //    float h = Input.GetAxis("Horizontal");
+    //    float v = Input.GetAxis("Vertical");
+    //    Vector3 directionVector = new Vector3(-v, 0, h);
+    //    if (directionVector.magnitude > Mathf.Abs(0.05f))
+    //    transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(directionVector),Time.deltaTime * 10);
+
+    //    // Changes the height position of the player..
+    //    if (Input.GetButtonDown("Jump") && groundedPlayer)
+    //    {
+    //        directionVector.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+    //    }
+    //    directionVector.y += gravityValue * Time.deltaTime;
+    //    CharacterController.Move(directionVector * (isRun ? boostSpeed : speed) * Time.deltaTime);
+     }
 }
