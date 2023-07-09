@@ -38,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WindowsKwez/Kwez3.unity
     guid: 188cb5ec0d63288479c2e38c591f1d99
+  - enabled: 1
+    path: Assets/Scenes/LVL2.unity
+    guid: 1d316075e7379ea42a13ebcae2786b89
+  - enabled: 1
+    path: Assets/Scenes/Cut3.unity
+    guid: a8b9e15cdff455f488b775349f140ca7
+  - enabled: 1
+    path: Assets/Scenes/LimenalSpaseLVL2.unity
+    guid: aa22d976d05c27e4eb39dc611dd409ae
   m_configObjects: {}
