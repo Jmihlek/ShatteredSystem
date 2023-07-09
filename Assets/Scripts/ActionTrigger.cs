@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class ActionTrigger : MonoBehaviour
 {
     public int ID;
+    public bool ActivateOnlyEnter;
     public GameObject messageText;
     private bool isInTrigger = false;
     public UnityEvent Action;
@@ -34,6 +35,11 @@ public class ActionTrigger : MonoBehaviour
     {
         if (other.TryGetComponent<Move>(out var Player))
         {
+            if (ActivateOnlyEnter)
+            {
+               Action?.Invoke();
+                return;
+            }
             isInTrigger = true;
             messageText.gameObject.SetActive(true); 
         }    
