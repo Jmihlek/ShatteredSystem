@@ -6,14 +6,8 @@ using UnityEngine.SceneManagement;
 public class ChangeSceneLiminalSpace : MonoBehaviour
 {
 
-
-    public class ChangeSceneLVL1 : MonoBehaviour
+    private void OnEnable()
     {
-
-        private void OnEnable()
-        {
-            SceneManager.LoadScene(13);
-        }
+        SceneManager.LoadScene(13);
     }
-
 }
