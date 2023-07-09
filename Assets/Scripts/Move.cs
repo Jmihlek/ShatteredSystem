@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    public AudioSource HODBA;
     private Animator animator;
    // private Rigidbody rigidbody;
     public float rotationSpeed = 10;
@@ -21,10 +22,11 @@ public class Move : MonoBehaviour
     private float cameraSwitchTimer = 0.0f; // Таймер для отслеживания задержки смены камеры
 
     public bool canSwitchCamera = true; // Флаг, указывающий, можно ли менять камеры
+    private Vector3 lastPosition;
     void Start()
     {
-
-      animator = GetComponent<Animator>();
+        lastPosition = transform.position;
+        animator = GetComponent<Animator>();
       //rigidbody = GetComponent<Rigidbody>();  
       CharacterController = GetComponent<CharacterController>();
     }
@@ -81,6 +83,25 @@ public class Move : MonoBehaviour
         // Вычисляем направление движения персонажа относительно камеры
         Vector3 movementDirection = (cameraForward * verticalInput) + (cameraRight * horizontalInput);
         movementDirection.Normalize();
+
+        // Получаем текущую позицию объекта
+        Vector3 currentPosition = transform.position;
+
+        // Сравниваем текущую позицию с предыдущей
+        if (currentPosition != lastPosition)
+        {
+            // Объект движется
+            if(!HODBA.isPlaying)
+                HODBA.Play();
+        }
+        else
+        {
+            // Объект не движется
+            HODBA.Stop();
+        }
+
+        // Обновляем предыдущую позицию
+        lastPosition = currentPosition;
 
         // Применяем движение персонажа
         Vector3 movement = movementDirection * (isRun ? boostSpeed : speed) * Time.deltaTime;
