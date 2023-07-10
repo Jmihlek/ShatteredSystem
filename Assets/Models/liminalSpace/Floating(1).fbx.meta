@@ -1,17 +1,12 @@
 fileFormatVersion: 2
-guid: 936268a9475b91e499c5d77e8ed41dd2
+guid: 76407e4c40241ba4b97a67cade1ea35c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: -203655887218126122
-    second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ebak
-    second: {fileID: 2100000, guid: 9f9f08868bb7997449c183bcba615557, type: 2}
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
