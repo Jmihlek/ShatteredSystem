@@ -47,4 +47,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LimenalSpaseLVL2.unity
     guid: aa22d976d05c27e4eb39dc611dd409ae
+  - enabled: 1
+    path: Assets/Scenes/CUT2_LVL1.unity
+    guid: 81977fb597311b04daac5fa6e899d304
+  - enabled: 1
+    path: Assets/Scenes/CUTLVL1END.unity
+    guid: 38531acb3b803b04cbe3f4cd3838e082
+  - enabled: 1
+    path: Assets/Scenes/CUT1LVL2.unity
+    guid: f4796999e6a756a418a17f1bc585a19c
   m_configObjects: {}
