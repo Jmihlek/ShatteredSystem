@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Move : BasePlayer 
 {
     public AudioSource HODBA;
     private Animator animator;

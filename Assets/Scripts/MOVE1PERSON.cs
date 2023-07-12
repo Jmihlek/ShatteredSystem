@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MOVE1PERSON : MonoBehaviour
+public class MOVE1PERSON : BasePlayer
 {
     public float speed = 5f;  // Скорость перемещения
 

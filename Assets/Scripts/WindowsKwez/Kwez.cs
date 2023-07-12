@@ -9,7 +9,12 @@ public class Kwez : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true;
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+    }
+    private void Update()
+    {
+        Cursor.visible = true;
     }
 
     public void SetEvil()

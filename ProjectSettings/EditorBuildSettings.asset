@@ -56,4 +56,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CUT1LVL2.unity
     guid: f4796999e6a756a418a17f1bc585a19c
+  - enabled: 1
+    path: Assets/Scenes/WindowsKwez/Kwez4.unity
+    guid: 46cdb5b24e56d1b46a47d75eb1e319ed
+  - enabled: 1
+    path: Assets/Scenes/WindowsKwez/Kwez5.unity
+    guid: 75a4185b96168264e8b294d373422ae9
+  - enabled: 1
+    path: Assets/Scenes/WindowsKwez/Kwez6.unity
+    guid: 921233e6650c33e4abd12422212feb75
+  - enabled: 1
+    path: Assets/Scenes/WindowsKwez/Kwez7.unity
+    guid: cabae23d4beb7c64aa2b2cb59e279dc6
+  - enabled: 1
+    path: Assets/Scenes/WindowsKwez/Kwez8.unity
+    guid: ea7e438325b7c704a9ae1374ad234f43
   m_configObjects: {}

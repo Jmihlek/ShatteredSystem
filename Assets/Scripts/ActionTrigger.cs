@@ -33,7 +33,7 @@ public class ActionTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Move>(out var Player))
+        if (other.TryGetComponent<BasePlayer>(out var Player))
         {
             if (ActivateOnlyEnter)
             {

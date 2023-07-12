@@ -1,24 +1,20 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.AI;
 
-public class AI_Ray : MonoBehaviour {
-
+public class AI_Ray : MonoBehaviour 
+{
     private Transform Player;
-    private UnityEngine.AI.NavMeshAgent NMA;
+    private NavMeshAgent NMA;
 
-
-
-	void Start () {
+	void Start () 
+    {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        NMA = (UnityEngine.AI.NavMeshAgent)this.GetComponent("NavMeshAgent");
+        NMA = GetComponent<NavMeshAgent>();
 	}
 	
-	
-	void Update () {
-        if (Player != null)
+	void Update () 
+    {
+        if (Player != null && NMA != null)
             NMA.SetDestination(Player.position);
-
-    
-
 	}
 }

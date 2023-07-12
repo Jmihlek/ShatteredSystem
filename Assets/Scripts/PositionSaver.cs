@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PositionSaver : MonoBehaviour
 {
-    private Move playerMove;
+    private BasePlayer playerMove;
     private Vector3 playerPosition;
     private Quaternion playerRotation;
     private const string EvilKey = "IsEvil";
@@ -18,25 +19,26 @@ public class PositionSaver : MonoBehaviour
 
     private void Start()
     {
+        var sceneid = SceneManager.GetActiveScene().buildIndex;
         // Поиск игрока с компонентом Move
-        playerMove = FindObjectOfType<Move>();
+        playerMove = FindObjectsOfType<MonoBehaviour>().OfType<BasePlayer>().FirstOrDefault();
         var cameras = FindObjectsOfType<Camera>();
 
         // Проверка наличия сохраненной позиции и поворота
-        if (PlayerPrefs.HasKey("PlayerPositionX") && PlayerPrefs.HasKey("PlayerPositionY") && PlayerPrefs.HasKey("PlayerPositionZ") &&
-            PlayerPrefs.HasKey("PlayerRotationX") && PlayerPrefs.HasKey("PlayerRotationY") && PlayerPrefs.HasKey("PlayerRotationZ") && 
-            PlayerPrefs.HasKey("PlayerRotationW"))
+        if (PlayerPrefs.HasKey($"PlayerPositionX{sceneid}") && PlayerPrefs.HasKey($"PlayerPositionY{sceneid}") && PlayerPrefs.HasKey($"PlayerPositionZ{sceneid}") &&
+            PlayerPrefs.HasKey($"PlayerRotationX{sceneid}") && PlayerPrefs.HasKey($"PlayerRotationY{sceneid}") && PlayerPrefs.HasKey($"PlayerRotationZ{sceneid}") && 
+            PlayerPrefs.HasKey($"PlayerRotationW{sceneid}"))
         {
             // Загрузка сохраненной позиции и поворота
-            float posX = PlayerPrefs.GetFloat("PlayerPositionX");
-            float posY = PlayerPrefs.GetFloat("PlayerPositionY");
-            float posZ = PlayerPrefs.GetFloat("PlayerPositionZ");
+            float posX = PlayerPrefs.GetFloat($"PlayerPositionX{sceneid}");
+            float posY = PlayerPrefs.GetFloat($"PlayerPositionY{sceneid}");
+            float posZ = PlayerPrefs.GetFloat($"PlayerPositionZ{sceneid}");
             playerPosition = new Vector3(posX, posY, posZ);
 
-            float rotX = PlayerPrefs.GetFloat("PlayerRotationX");
-            float rotY = PlayerPrefs.GetFloat("PlayerRotationY");
-            float rotZ = PlayerPrefs.GetFloat("PlayerRotationZ");
-            float rotW = PlayerPrefs.GetFloat("PlayerRotationW");
+            float rotX = PlayerPrefs.GetFloat($"PlayerRotationX{sceneid}");
+            float rotY = PlayerPrefs.GetFloat($"PlayerRotationY{sceneid}");
+            float rotZ = PlayerPrefs.GetFloat($"PlayerRotationZ{sceneid}");
+            float rotW = PlayerPrefs.GetFloat($"PlayerRotationW{sceneid}");
             playerRotation = new Quaternion(rotX, rotY, rotZ, rotW);
 
             // Перемещение игрока в сохраненную позицию и поворот
@@ -113,15 +115,16 @@ public class PositionSaver : MonoBehaviour
     [ContextMenu("Reset Saved Variables")]
     public void ResetSavedVariables()
     {
+        var sceneid = SceneManager.GetActiveScene().buildIndex;
         // Удаление всех сохраненных переменных
-        PlayerPrefs.DeleteKey("PlayerPositionX");
-        PlayerPrefs.DeleteKey("PlayerPositionY");
-        PlayerPrefs.DeleteKey("PlayerPositionZ");
-
-        PlayerPrefs.DeleteKey("PlayerRotationX");
-        PlayerPrefs.DeleteKey("PlayerRotationY");
-        PlayerPrefs.DeleteKey("PlayerRotationZ");
-        PlayerPrefs.DeleteKey("PlayerRotationW");
+        PlayerPrefs.DeleteKey($"PlayerPositionX{sceneid}");
+        PlayerPrefs.DeleteKey($"PlayerPositionY{sceneid}");
+        PlayerPrefs.DeleteKey($"PlayerPositionZ{sceneid}");
+                                            
+        PlayerPrefs.DeleteKey($"PlayerRotationX{sceneid}");
+        PlayerPrefs.DeleteKey($"PlayerRotationY{sceneid}");
+        PlayerPrefs.DeleteKey($"PlayerRotationZ{sceneid}");
+        PlayerPrefs.DeleteKey($"PlayerRotationW{sceneid}");
         
         PlayerPrefs.DeleteKey("NumberArray");
         PlayerPrefs.DeleteKey("IsEvil");
