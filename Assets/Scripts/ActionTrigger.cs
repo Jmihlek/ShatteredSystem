@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -46,10 +44,11 @@ public class ActionTrigger : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<Move>(out var Player))
+        if (other.TryGetComponent<BasePlayer>(out var Player))
         {
             isInTrigger = false;
-            messageText.gameObject.SetActive(false); // Скрыть надпись
+            if (messageText != null)
+                messageText.gameObject.SetActive(false); // Скрыть надпись
         }
     }
 }

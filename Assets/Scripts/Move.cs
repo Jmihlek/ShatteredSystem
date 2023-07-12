@@ -116,6 +116,7 @@ public class Move : BasePlayer
         {
             gameObject.transform.forward = movement;
         }
+        movement.y += gravityValue * Time.deltaTime;
         CharacterController.Move(movement);
 
         // Поворачиваем персонажа в сторону ходьбы
